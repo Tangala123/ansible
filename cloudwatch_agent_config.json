@@ -16,7 +16,7 @@
         }
       },
       "append_dimensions": {
-        "AutoScalingGroupName": "${aws:asg-01}"
+        "AutoScalingGroupName": "${aws:AutoScalingGroupName}"
       }
     }
   }
