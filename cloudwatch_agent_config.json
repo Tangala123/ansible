@@ -1,6 +1,6 @@
 {
     "agent": {
-      "run_as_user": "ec2-user"
+      "run_as_user": "root"
     },
     "metrics": {
       "metrics_collected": {
