@@ -1,0 +1,23 @@
+{
+    "agent": {
+      "run_as_user": "ec2-user"
+    },
+    "metrics": {
+      "metrics_collected": {
+        "collectd": {},
+        "cpu": {
+          "measurement": [
+            {"name": "cpu_usage_idle", "rename": "CPUUsageIdle"},
+            {"name": "cpu_usage_user", "rename": "CPUUsageUser"},
+            {"name": "cpu_usage_system", "rename": "CPUUsageSystem"}
+          ],
+          "metrics_collection_interval": 60,
+          "totalcpu": false
+        }
+      },
+      "append_dimensions": {
+        "AutoScalingGroupName": "${aws:asg-01}"
+      }
+    }
+  }
+  

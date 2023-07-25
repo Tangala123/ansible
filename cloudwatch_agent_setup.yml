@@ -1,0 +1,21 @@
+---
+- hosts: tag:aws:autoscaling:groupName_asg-01
+  become: yes
+  tasks:
+    - name: Download and install the CloudWatch Agent
+      yum:
+        name: amazon-cloudwatch-agent
+        state: latest
+
+    - name: Copy CloudWatch Agent configuration file
+      copy:
+        src: cloudwatch_agent_config.json
+        dest: /opt/aws/amazon-cloudwatch-agent/bin/config.json
+      notify:
+        - Restart CloudWatch Agent
+
+  handlers:
+    - name: Restart CloudWatch Agent
+      service:
+        name: amazon-cloudwatch-agent
+        state: restarted
